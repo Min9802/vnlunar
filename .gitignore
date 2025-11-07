@@ -1,0 +1,6 @@
+.project
+node_modules
+package-lock.json
+lib/amlich-extended.js
+lib/amlich-hnd.js
+dist
