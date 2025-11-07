@@ -63,7 +63,7 @@ export function get_12_constructions(lunarDay: number, lunarMonth: number): Cons
  * @returns Mansion information
  */
 export function get_28_mansions(jd: number): Mansion28Info {
-  const tuIndex = (jd + 15) % 28;
+  const tuIndex = (jd + 11) % 28;
   return MANSIONS_28[tuIndex];
 }
 
