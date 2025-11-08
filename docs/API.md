@@ -312,8 +312,8 @@ Lấy 12 sao Kiến Trừ của ngày.
 **Example:**
 ```javascript
 const lunar = vnLunar.get_lunar_date(6, 11, 2025);
-const sao = vnLunar.get_12_stars(lunar.day, lunar.month);
-console.log(sao.name + ' - ' + sao.status);
+const star = vnLunar.get_12_stars(lunar.day, lunar.month);
+console.log(star.name + ' - ' + star.status);
 ```
 
 ---
@@ -889,7 +889,7 @@ const goodDays = vnLunar.find_good_days(11, 2025, 'cuoi');
 console.log('Tìm thấy', goodDays.length, 'ngày tốt để cưới');
 
 goodDays.forEach(day => {
-  console.log(`${day.day}/${day.month}/${day.year} - ${day.sao.name}`);
+  console.log(`${day.day}/${day.month}/${day.year} - ${day.star.name}`);
 });
 ```
 
@@ -900,7 +900,7 @@ goodDays.forEach(day => {
   month: 11,
   year: 2025,
   jd: 2460985,
-  sao: { name: "Thành", status: "good", ... }
+  star: { name: "Thành", status: "good", ... }
 }
 ```
 

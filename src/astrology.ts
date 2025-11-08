@@ -29,9 +29,9 @@ import { jdn2date, convert_solar_to_lunar, jdn } from './core';
  * @returns Star information
  */
 export function get_12_stars(lunarDay: number, lunarMonth: number): Star12Info {
-  let saoIndex = (lunarMonth + lunarDay - 2) % 12;
-  if (saoIndex < 0) saoIndex += 12;
-  return STARS_12[saoIndex];
+  let starIndex = (lunarMonth + lunarDay - 2) % 12;
+  if (starIndex < 0) starIndex += 12;
+  return STARS_12[starIndex];
 }
 
 /**
@@ -41,8 +41,8 @@ export function get_12_stars(lunarDay: number, lunarMonth: number): Star12Info {
  */
 export function get_12_gods(jd: number): God12Info {
   const chiNgay = (jd + 1) % 12;
-  const thanIndex = (chiNgay + 8) % 12;
-  return GODS_12[thanIndex];
+  const godIndex = (chiNgay + 8) % 12;
+  return GODS_12[godIndex];
 }
 
 /**
@@ -109,16 +109,16 @@ export function get_nayin(jd: number): NayinInfo {
  * @returns Auspicious/Inauspicious information
  */
 export function get_day_type(lunarDay: number, lunarMonth: number): DayTypeInfo {
-  const sao = get_12_stars(lunarDay, lunarMonth);
+  const star = get_12_stars(lunarDay, lunarMonth);
   const hoangDao = ["Kiến", "Mãn", "Định", "Thành", "Thu", "Khai"];
   const hacDao = ["Trừ", "Bình", "Chấp", "Phá", "Nguy", "Bế"];
 
-  const isHoangDao = hoangDao.indexOf(sao.name) !== -1;
-  const isHacDao = hacDao.indexOf(sao.name) !== -1;
+  const isHoangDao = hoangDao.indexOf(star.name) !== -1;
+  const isHacDao = hacDao.indexOf(star.name) !== -1;
 
   return {
     type: isHoangDao ? "Hoàng Đạo" : "Hắc Đạo",
-    star: sao.name,
+    star: star.name,
     good: isHoangDao,
     bad: isHacDao,
     desc: isHoangDao 
@@ -179,9 +179,9 @@ export function find_good_days(month: number, year: number, activity: string): A
   month: number;
   year: number;
   jd: number;
-  sao: Star12Info;
+  star: Star12Info;
 }> {
-  const good_days: Array<{day: number; month: number; year: number; jd: number; sao: Star12Info}> = [];
+  const good_days: Array<{day: number; month: number; year: number; jd: number; star: Star12Info}> = [];
   let daysInMonth = 31;
 
   if (month === 2) {
@@ -199,7 +199,7 @@ export function find_good_days(month: number, year: number, activity: string): A
         month: month,
         year: year,
         jd: jd,
-        sao: result.star
+        star: result.star
       });
     }
   }

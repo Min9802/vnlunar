@@ -54,9 +54,9 @@ Trong văn hóa Việt Nam, việc chọn ngày giờ tốt để làm việc qu
 
 ```javascript
 const jd = vnLunar.jdn(6, 11, 2025);
-const sao = vnLunar.get_12_stars(jd);
+const star = vnLunar.get_12_stars(jd);
 
-console.log(sao);
+console.log(star);
 // {
 //   name: "Mãn",
 //   status: "Bình",
@@ -66,13 +66,13 @@ console.log(sao);
 // }
 
 // Hiển thị
-console.log(`Sao ${sao.name} - ${sao.status}`);
-if (sao.status === "Tốt") {
+console.log(`Sao ${star.name} - ${star.status}`);
+if (star.status === "Tốt") {
   console.log("✅ Ngày tốt!");
-  console.log("Nên làm:", sao.good.join(", "));
-} else if (sao.status === "Xấu") {
+  console.log("Nên làm:", star.good.join(", "));
+} else if (star.status === "Xấu") {
   console.log("❌ Ngày xấu!");
-  console.log("Không nên:", sao.bad.join(", "));
+  console.log("Không nên:", star.bad.join(", "));
 } else {
   console.log("⚠️ Ngày bình thường");
 }
@@ -87,13 +87,13 @@ function findThanhDays(month, year, count = 5) {
 
   for (let d of days) {
     const jd = vnLunar.jdn(d.dd, d.mm, d.yyyy);
-    const sao = vnLunar.get_12_stars(jd);
+    const star = vnLunar.get_12_stars(jd);
 
-    if (sao.name === "Thành") {
+    if (star.name === "Thành") {
       result.push({
         date: `${d.dd}/${d.mm}/${d.yyyy}`,
         lunar: `${d.day}/${d.month}`,
-        sao: sao.name,
+        star: star.name,
       });
 
       if (result.length >= count) break;
@@ -271,14 +271,14 @@ const hhd = vnLunar.get_day_type(jd);
 console.log(hhd);
 // {
 //   type: "Hoàng Đạo",
-//   sao: "Thanh Long",
+//   star: "Thanh Long",
 //   description: "Thanh Long (Hoàng Đạo) - Tốt...",
 //   tot: true
 // }
 
 // Hiển thị với emoji
 const emoji = hhd.type === "Hoàng Đạo" ? "✅" : "❌";
-console.log(`${emoji} ${hhd.sao} - ${hhd.type}`);
+console.log(`${emoji} ${hhd.star} - ${hhd.type}`);
 ```
 
 ### Ví dụ: Thống kê Hoàng/Hắc Đạo trong tháng
@@ -531,7 +531,7 @@ function viewDayApp(dd, mm, yyyy) {
   console.log(`   ${nayin.name} (${nayin.element})`);
   console.log("");
   console.log("☀️ HOÀNG ĐẠO / HẮC ĐẠO");
-  console.log(`   ${dayType.sao} - ${dayType.type}`);
+  console.log(`   ${dayType.star} - ${dayType.type}`);
   console.log("");
   console.log("⏰ GIỜ HOÀNG ĐẠO");
   console.log(`   ${auspiciousHours.gioHoangDaoText}`);

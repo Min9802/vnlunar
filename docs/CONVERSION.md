@@ -409,13 +409,13 @@ console.log('Tuổi theo âm lịch:', age);
 ```javascript
 // ❌ Tính JDN nhiều lần (chậm)
 const lunar = vnLunar.get_lunar_date(6, 11, 2025);
-const sao = vnLunar.get_12_stars(vnLunar.jdn(6, 11, 2025));
+const star = vnLunar.get_12_stars(vnLunar.jdn(6, 11, 2025));
 const tu = vnLunar.get_28_mansions(vnLunar.jdn(6, 11, 2025));
 
 // ✅ Cache JDN (nhanh)
 const jd = vnLunar.jdn(6, 11, 2025);
 const lunar = vnLunar.get_lunar_date(6, 11, 2025);
-const sao = vnLunar.get_12_stars(jd);
+const star = vnLunar.get_12_stars(jd);
 const tu = vnLunar.get_28_mansions(jd);
 ```
 
@@ -425,7 +425,7 @@ const tu = vnLunar.get_28_mansions(jd);
 // ❌ Gọi nhiều lần (chậm)
 const lunar = vnLunar.get_lunar_date(6, 11, 2025);
 const jd = vnLunar.jdn(6, 11, 2025);
-const sao = vnLunar.get_12_stars(jd);
+const star = vnLunar.get_12_stars(jd);
 const tu = vnLunar.get_28_mansions(jd);
 
 // ✅ Gọi 1 lần (nhanh)
