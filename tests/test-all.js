@@ -390,7 +390,7 @@ console.log('  Tháng 11/2025 - Ngày tốt cho cưới hỏi:');
 console.log('  Tìm thấy ' + goodDays.length + ' ngày tốt');
 if (goodDays.length > 0) {
     goodDays.slice(0, 5).forEach((day, index) => {
-        console.log('    ' + (index + 1) + '. Ngày ' + day.day + '/' + day.month + ' - Sao ' + day.sao.name);
+        console.log('    ' + (index + 1) + '. Ngày ' + day.day + '/' + day.month + ' - Sao ' + day.star.name);
     });
 }
 assert(goodDays.length > 0, 'Phải tìm thấy ít nhất 1 ngày tốt');

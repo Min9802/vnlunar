@@ -256,6 +256,5 @@ Mọi đóng góp đều được chào đón! Vui lòng tạo Pull Request ho�
 
 ---
 
-**Version**: 1.0.0  
 **Updated**: November 2025  
 **Made with ❤️ by vnLunar Min**
