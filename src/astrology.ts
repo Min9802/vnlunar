@@ -130,7 +130,7 @@ export function get_day_type(lunarDay: number, lunarMonth: number): DayTypeInfo 
 /**
  * Check if day is good for specific activity
  * @param jd Julian Day Number
- * @param activity Activity type: "cuoi", "xaynha", "xuathanh", "khaotruong"
+ * @param activity Activity type: "wedding", "construction", "travel", "opening", "moving", "investment"
  * @returns Day selection result
  */
 export function check_good_day(jd: number, activity: string): DaySelectionResult {

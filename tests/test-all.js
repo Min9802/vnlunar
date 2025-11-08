@@ -370,7 +370,14 @@ testHours.forEach((hour) => {
 section('15. TÌM NGÀY TỐT');
 
 subsection('Kiểm tra ngày tốt cho hoạt động cụ thể');
-const activities = ['cuoi', 'xaynha', 'xuathanh'];
+const activities = [
+    'wedding',
+    'construction',
+    'travel',
+    'opening',
+    'moving',
+    'investment'
+];
 activities.forEach((activity) => {
     const result = vnLunar.check_good_day(jd, activity);
     console.log('  ' + activity + ': ' + (result.good ? '✓ TỐT' : '✗ KHÔNG TỐT'));
@@ -378,7 +385,7 @@ activities.forEach((activity) => {
 });
 
 subsection('Tìm ngày tốt trong tháng');
-const goodDays = vnLunar.find_good_days(11, 2025, 'cuoi');
+const goodDays = vnLunar.find_good_days(11, 2025, 'wedding');
 console.log('  Tháng 11/2025 - Ngày tốt cho cưới hỏi:');
 console.log('  Tìm thấy ' + goodDays.length + ' ngày tốt');
 if (goodDays.length > 0) {
