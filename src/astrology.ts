@@ -136,27 +136,34 @@ export function get_day_type(lunarDay: number, lunarMonth: number): DayTypeInfo 
 export function check_good_day(jd: number, activity: string): DaySelectionResult {
   const solarDate = jdn2date(jd);
   const lunar = convert_solar_to_lunar(solarDate[0], solarDate[1], solarDate[2], 7.0);
-  const sao = get_12_stars(lunar.day, lunar.month);
+  const star = get_12_stars(lunar.day, lunar.month);
   
   const good_for_activity: Record<string, string[]> = {
-    "cuoi": ["Kiến", "Mãn", "Định", "Thành", "Khai"],
-    "xaynha": ["Kiến", "Định", "Thành", "Khai"],
-    "xuathanh": ["Kiến", "Mãn", "Thành", "Khai"],
-    "khaotruong": ["Kiến", "Thành", "Khai", "Thu"],
-    "chuyennha": ["Kiến", "Mãn", "Thành"],
-    "dautu": ["Định", "Thành", "Thu", "Khai"]
+    "wedding": ["Kiến", "Mãn", "Định", "Thành", "Khai"],
+    "construction": ["Kiến", "Định", "Thành", "Khai"],
+    "travel": ["Kiến", "Mãn", "Thành", "Khai"],
+    "opening": ["Kiến", "Thành", "Khai", "Thu"],
+    "moving": ["Kiến", "Mãn", "Thành"],
+    "investment": ["Định", "Thành", "Thu", "Khai"]
   };
-
+  const job_names = [
+    { key: 'wedding', name: 'Cưới hỏi' },
+    { key: 'construction', name: 'Xây nhà, khởi công' },
+    { key: 'travel', name: 'Di chuyển, xuất hành' },
+    { key: 'opening', name: 'Khai trương, khai giảng' },
+    { key: 'moving', name: 'Chuyển nhà' },
+    { key: 'investment', name: 'Đầu tư, kinh doanh' }
+  ];
   const good_list = good_for_activity[activity] || [];
-  const is_good = good_list.indexOf(sao.name) !== -1;
-
+  const is_good = good_list.indexOf(star.name) !== -1;
+  let activity_name = job_names.find(j => j.key === activity)?.name || activity;
   return {
-    star: sao,
+    star: star,
     activity: activity,
     good: is_good,
     description: is_good 
-      ? "Ngày " + sao.name + " - TỐT cho " + activity
-      : "Ngày " + sao.name + " - KHÔNG TỐT cho " + activity
+      ? "Ngày " + star.name + " - TỐT cho " + activity_name
+      : "Ngày " + star.name + " - KHÔNG TỐT cho " + activity_name
   };
 }
 

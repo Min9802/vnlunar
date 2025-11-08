@@ -844,18 +844,18 @@ Xem ngày có tốt cho việc cụ thể không.
 **Parameters:**
 - `jd` (Number): Julian Day Number
 - `activity` (String): Loại việc
-  - `"cuoi"`: Cưới hỏi
-  - `"xaynha"`: Xây nhà, khởi công
-  - `"khaotruong"`: Khai trương, khai giảng
-  - `"xuathanh"`: Di chuyển, xuất hành
-  - `"chuyennha"`: Chuyển nhà
-  - `"dautu"`: Đầu tư, kinh doanh
+  - `"wedding"`: Cưới hỏi
+  - `"construction"`: Xây nhà, khởi công
+  - `"travel"`: Di chuyển, xuất hành 
+  - `"opening"`: Khai trương, khai giảng
+  - `"moving"`: Chuyển nhà
+  - `"investment"`: Đầu tư, kinh doanh
 
 **Returns:** (Object)
 ```javascript
 {
   star: { name: "Thành", status: "good", ... },
-  activity: "cuoi",
+  activity: "wedding",
   good: true,
   description: "Ngày Thành - TỐT cho cuoi"
 }
